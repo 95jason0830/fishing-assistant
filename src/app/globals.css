@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+:root {
+  --background: #0a1628;
+  --foreground: #e8f4fd;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+/* 自訂滾動條 */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a1628; }
+::-webkit-scrollbar-thumb { background: #1e4d7b; border-radius: 3px; }
+
+/* 動畫 */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(56,189,248,0.3); }
+  50% { box-shadow: 0 0 25px rgba(56,189,248,0.7); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+/* 玻璃效果 */
+.glass {
+  background: rgba(14, 36, 64, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+}
+.glass-light {
+  background: rgba(30, 77, 123, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* 載入動畫 */
+.skeleton {
+  background: linear-gradient(90deg, #1e3a5f 25%, #2a5280 50%, #1e3a5f 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Leaflet */
+.leaflet-container {
+  background: #0d2444 !important;
+  border-radius: 12px;
+}
